@@ -1,0 +1,57 @@
+{% extends "_base.html" %}
+{% block head %}
+	{{ super() }}
+	<script src="/static/js/dbdoc.js?good"></script>
+{% endblock %}
+{% block content %}
+	<h1 class="page-header">DB Doc</h1>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="form-group">
+				<select class="form-control" name="table_prefix" id="table_prefix">
+						<option value="agt_" {% if table_prefix=='agt_' %}selected{% endif %}>agt_</option>
+						<option value="clt_client" {% if table_prefix=='clt_client' %}selected{% endif %}>clt_client</option>
+						<option value="clt_customer" {% if table_prefix=='clt_customer' %}selected{% endif %}>clt_customer</option>
+						<option value="cnt_" {% if table_prefix=='cnt_' %}selected{% endif %}>cnt_</option>
+						<option value="dic_" {% if table_prefix=='dic_' %}selected{% endif %}>dic_</option>
+						<option value="ins_" {% if table_prefix=='ins_' %}selected{% endif %}>ins_</option>
+						<option value="ntc_" {% if table_prefix=='ntc_' %}selected{% endif %}>ntc_</option>
+						<option value="plt_" {% if table_prefix=='plt_' %}selected{% endif %}>plt_</option>
+						<option value="pmt_" {% if table_prefix=='pmt_' %}selected{% endif %}>pmt_</option>
+						<option value="rpt_" {% if table_prefix=='rpt_' %}selected{% endif %}>rpt_</option>
+						<option value="sys_" {% if table_prefix=='sys_' %}selected{% endif %}>sys_</option>
+						<option value="thp_" {% if table_prefix=='thp_' %}selected{% endif %}>thp_</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<select class="form-control" name="table_name" id="table_name">
+					{% for table in tables %}
+						<option value="{{ table }}">{{ table }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary" id="generateContent">生成目录</button>
+				<button class="btn btn-primary" id="generateTableContent">生成单表</button>
+				<button class="btn btn-primary" id="generateAllTableContent">生成所有表</button>
+				<button class="btn btn-primary" id="copyToClipBoard" />点击复制代码</button>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary" id="clearContent">Clear All</button>
+			</div>
+		</div>
+	</div>
+	<h3>目录</h3>
+	<div class="col-lg-12">
+		<pre id="doc_content" class="well well-code"></pre>
+	</div>
+	<h3>单库表</h3>
+	<div class="col-lg-12">
+		<pre id="doc_table" class="well well-code"></pre>
+	</div>
+	<h3>全库表</h3>
+	<div class="col-lg-12">
+		<pre class="well well-code" id="doc_table_all"></pre>
+		<textarea style="width: 0;height: 0;" id="content_hidden"></textarea>
+	</div>
+{% endblock %}

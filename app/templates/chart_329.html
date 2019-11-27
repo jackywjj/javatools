@@ -1,0 +1,58 @@
+{% extends "_base.html" %}
+{% block head %}
+	{{ super() }}
+	<script src="/static/js/highchart/highcharts.js"></script>
+{% endblock %}
+{% block content %}
+	<h1 class="page-header">Chart Tools</h1>
+	<div id="container" style="max-width:1000px;height:800px"></div>
+	<script>
+
+	var chart = Highcharts.chart('container', {
+	title: {
+		text: '329'
+	},
+	subtitle: {
+		text: 'cy'
+	},
+	yAxis: {
+		title: {
+			text: 'Amount'
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		align: 'right',
+		verticalAlign: 'middle'
+	},
+	xAxis: {
+    categories: [{% for i in label_list %} '{{i}}',{% endfor %}]
+	},
+	plotOptions: {
+		series: {
+			label: {
+				connectorAllowed: false
+			},
+		}
+	},
+	series: [{
+		name: '总销量',
+		data: [{% for i in value_list %} {{i}},{% endfor %}]
+	}],
+	responsive: {
+		rules: [{
+			condition: {
+				maxWidth: 500
+			},
+			chartOptions: {
+				legend: {
+					layout: 'horizontal',
+					align: 'center',
+					verticalAlign: 'bottom'
+				}
+			}
+		}]
+	}
+});
+	</script>
+{% endblock %}
