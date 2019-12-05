@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+{% block head %}
+	{{ super() }}
+	<script src="/static/js/json-tools.js"></script>
+{% endblock %}
+{% block content %}
+<h1 class="page-header">JSON Tool</h1>
+<div class="form-inline">
+	<div class="form-group" action="/redeem/" method="get">
+		<textarea id="javacode" style="width:800px; height: 500px;"></textarea>
+	</div>
+	<button type="button" class="btn btn-primary" id="generateJson">Submit</button>
+</div>
+	<pre></pre>
+{% endblock %}
