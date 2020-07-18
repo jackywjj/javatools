@@ -6,9 +6,9 @@ import os
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 # Define the database
 SQLALCHEMY_TRACK_MODIFICATIONS = True
-SQLALCHEMY_DATABASE_URI = 'mysql://root:0401cy@127.0.0.1/cy_qydb'
+#SQLALCHEMY_DATABASE_URI = 'mysql://root:0401cy@127.0.0.1/cy_qydb'
 #SQLALCHEMY_DATABASE_URI = 'mysql://cyuser:0831tscy@106.14.94.150/cy_qydb'
-#SQLALCHEMY_DATABASE_URI = 'mysql://root:0401cy@192.168.1.106/cy_qydb'
+SQLALCHEMY_DATABASE_URI = 'mysql://root:0401cy@192.168.1.106/cy_qydb'
 #SQLALCHEMY_DATABASE_URI = 'mysql://root:0401cy@58.246.116.82/cy_tools'
 
 DATABASE_CONNECT_OPTIONS = {}
