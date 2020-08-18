@@ -87,7 +87,7 @@ def trade_tool_generatesql():
                 flag = True
 
         if not flag:
-            print field_0['field']
+            print(field_0['field'])
 
     data = {"tables": fields_0}
     return json.dumps(data, ensure_ascii=False)

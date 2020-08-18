@@ -1,10 +1,6 @@
 # coding=utf8
-from flask import Blueprint, render_template, abort, request
+from flask import Blueprint, render_template, abort
 from jinja2 import TemplateNotFound
-
-from app.models.agent_grade import *
-from app.models.city import *
-from app.models.province import *
 
 jira_controller = Blueprint('jira_controller', __name__, url_prefix='/jira')
 

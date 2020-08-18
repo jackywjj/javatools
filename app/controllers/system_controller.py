@@ -29,7 +29,7 @@ def get_agent():
     filters = {}
     if not grade_code == "":
         filters['grade_code'] = grade_code
-        print filters
+        print(filters)
     if not province_code == "":
         filters['province_code'] = province_code
     if not city_code == "":
